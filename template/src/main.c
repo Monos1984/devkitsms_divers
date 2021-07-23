@@ -1,12 +1,10 @@
 // ****************************************************
-// * Nom du jeu ....... :                             *
-// * Programmeur ...... :                             *
-// * Date ............. :                             *
+// *                 main.c                           *
 // ****************************************************
-
-// ==============
-// |   main.c   |
-// ==============
+// * Nom du jeu ....... : Template                    *
+// * Programmeur ...... : Jean Monos                  *
+// * Date ............. : 23/07/2021                  *
+// ****************************************************
 
 // ===================
 // * Fichier include *
@@ -17,15 +15,17 @@
 // * En tête de la rom pour que cela soit lisible sur Master System *
 // ==================================================================
 
-// + ------------ +
-// * Header Value *
-// + ------------ +
-SMS_EMBED_SEGA_ROM_HEADER(0, 0);
+// + ----------- +
+// * Sega Header *
+// + ----------- +
+SMS_EMBED_SEGA_ROM_HEADER(HEADER_PRODUCTION,HEADER_VERSION);
 
-// + ---- +
-// * SDSC *
-// + ---- +
-SMS_EMBED_SDSC_HEADER_AUTO_DATE(HEADER_VER_MAJ,HEADER_VER_MIN,HEADER_AUTEUR,HEADER_NOM,HEADER_DESCRIPTION);
+// + ----------- +
+// * SDSC Header *
+// + ----------- +
+#if SDSC_ON == ON
+  SMS_EMBED_SDSC_HEADER_AUTO_DATE(HEADER_VER_MAJ,HEADER_VER_MIN,HEADER_AUTEUR,HEADER_NOM,HEADER_DESCRIPTION);
+#endif
 
 // ======================================
 // * Declaration des variables globales *
